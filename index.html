@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/styles/styles.css">
+    <title>Moda Style</title>
+</head>
+
+<body>
+    <header>
+        <h1>🛍️ Moda Style</h1>
+        <p>As melhores roupas para você!</p>
+    </header>
+    <div class="cart-button" onclick="openCart()">
+        🛒 Carrinho <span class="cart-count" id="cartCount">0</span>
+    </div>
+
+    <div class="container">
+        <h2>Nossos Produtos</h2>
+
+
+        <div class="products-grid" id="productsGrid">
+            <div class="product-card">
+                <img src="/src/image/camisa basica.jpg" alt="Camiseta Básica Azul" class="product-image">
+                <div class="product-name">Camiseta Básica Azul</div>
+                <div class="product-price">R$49,90</div>
+                <button class="add-to-cart" onclick="addToCart(1, 'Camiseta Básica Azul', 49.90)">
+                    ➕ Adicionar ao Carrinho
+                </button>
+            </div>
+
+            <div class="product-card">
+                <img src="/src/image/calça jeans.jpg" alt="Calça Jeans" class="product-image">
+                <div class="product-name">Calça Jeans</div>
+                <div class="product-price">R$129,90</div>
+                <button class="add-to-cart" onclick="addToCart(2, 'Calça Jeans', 129.90)">
+                    ➕ Adicionar ao Carrinho
+                </button>
+            </div>
+
+            <div class="product-card">
+                <img src="/src/image/vestido floral.jpg" alt="Vestido Floral" class="product-image">
+                <div class="product-name">Vestido Floral</div>
+                <div class="product-price">R$159,90</div>
+                <button class="add-to-cart" onclick="addToCart(3, 'Vestido Floral', 159.90)">
+                    ➕ Adicionar ao Carrinho
+                </button>  
+            </div>
+
+            <div class="product-card">
+                <img src="/src/image/jaqueta jeans.jpg" alt="Jaqueta Jeans" class="product-image">
+                <div class="product-name">Jaqueta Jeans</div>
+                <div class="product-price">R$189,90</div>
+                <button class="add-to-cart" onclick="addToCart(4, 'Jaqueta Jeans', 189.90)">
+                    ➕ Adicionar ao Carrinho
+                </button>
+            </div>
+
+            <div class="product-card">
+                <img src="/src/image/blusa de frio.jpg" alt="Blusa de Frio" class="product-image">
+                <div class="product-name">Blusa de Frio</div>
+                <div class="product-price">R$99,90</div>
+                <button class="add-to-cart" onclick="addToCart(5, 'Blusa de Frio', 99.90)">
+                    ➕ Adicionar ao Carrinho
+                </button>
+            </div>
+
+            <div class="product-card">
+                <img src="/src/image/short jeans.jpg" alt="Short Jeans" class="product-image">
+                <div class="product-name">Short Jeans</div>
+                <div class="product-price">R$79,90</div>
+                <button class="add-to-cart" onclick="addToCart(6, 'Short Jeans', 79.90)">
+                    ➕ Adicionar ao Carrinho
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Meu carrinho</h2>
+                <button class="close-cart" onclick="closeCart()">✖ Fechar</button>
+            </div>
+            <div id="cartItems">
+                <!-- Os itens do carrinho aparecem aqui -->
+            </div>
+            <div class="cart-total" id="cartTotal">
+                Total: R$ 0,00
+            </div>
+            <button class="checkout-button" onclick="checkout()">
+                ✅ Finalizar Compra
+            </button>
+        </div>
+    </div>
+
+    <div class="promo-modal" id="promoModal">
+        <button class="promo-close" onclick="closePromoModal()">X</button>
+        <div class="promo-header">
+            <div class="promo-icon">🎁</div>
+            <h3>Ganhe 10% OFF!</h3>
+            <p>Cadastre seu email e receba promoções exclusivas</p>
+        </div>
+        <form class="promo-form" onsubmit="submitPromoEmail(event)">
+            <input 
+                type="text"
+                class="promo-input"
+                placeholder="Seu nome"
+                id="promoName"
+                required
+            >
+            <input 
+                type="email"
+                class="promo-input"
+                placeholder="seu@email.com.br"
+                id="promoEmail"
+                required
+            >
+            <button type="submit" class="promo-submit">
+                    ✉️ Quero receber promoções!
+            </button>
+        </form>
+    </div>
+    <script src="src/javascript/script.js"></script>
+</body>
+</html>
