@@ -246,6 +246,7 @@ header h1 {
         transform: translateY(100px);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
@@ -315,11 +316,471 @@ header h1 {
     background-color: transparent;
     border: none;
     font-size: 24px;
-    cursor:pointer;
+    cursor: pointer;
     color: #999;
-    transition: color  0.3s;
+    transition: color 0.3s;
 }
 
 .promo-close:hover {
     color: #e74c3c;
+}
+
+@media (max-width: 900px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    .cart-button {
+        padding: 12px 20px;
+        font-size: 16px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .container {
+        padding: 0 15px;
+        margin: 30px auto;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        max-width: 700px;
+    }
+
+    .product-card {
+        max-width: 100%;
+    }
+
+    .product-image {
+        height: 200px;
+    }
+
+    .product-name {
+        font-size: 18px;
+    }
+
+    .cart-content {
+        max-width: 450px;
+        padding: 25px;
+    }
+
+    .cart-header h2 {
+        font-size: 22px;
+    }
+
+    .cart-total {
+        font-size: 20px;
+    }
+
+    .promo-modal {
+        max-width: 350px;
+        padding: 25px;
+    }
+
+    .promo-header h3 {
+        font-size: 20px;
+    }
+}
+
+/* Responsivo: em telas muito pequenas, mostra 1 coluna */
+@media (max-width: 600px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 👕 CARTÃO DE PRODUTO - Cada caixinha de produto */
+.product-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    text-align: center;
+    width: 100%;
+    /* Ocupa toda a largura da célula */
+    max-width: 300px;
+    /* Limita o tamanho máximo */
+}
+
+/* Quando passar o mouse, o produto "pula" um pouco */
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagem do produto */
+.product-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.product-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.product-price {
+    font-size: 24px;
+    color: #27ae60;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* 🔘 BOTÃO ADICIONAR AO CARRINHO */
+.add-to-cart {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+    background-color: #2980b9;
+}
+
+/* 🛍️ MODAL DO CARRINHO - A janelinha que aparece com os produtos */
+.cart-modal {
+    display: none;
+    /* Começa escondido */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+}
+
+.close-cart {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Item dentro do carrinho */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.remove-item {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.cart-total {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #2c3e50;
+    text-align: right;
+    font-size: 24px;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+.checkout-button {
+    width: 100%;
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.checkout-button:hover {
+    background-color: #229954;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+}
+
+/* 📧 MODAL DE PROMOÇÕES - Janela para coletar emails */
+.promo-modal {
+    display: none;
+    /* Começa escondido */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    z-index: 3000;
+    animation: slideUp 0.5s ease-out;
+}
+
+/* Animação de entrada do modal */
+@keyframes slideUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.promo-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.promo-header h3 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.promo-header p {
+    color: #666;
+    font-size: 14px;
+}
+
+.promo-icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+/* Formulário de email */
+.promo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.promo-input {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.promo-input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.promo-submit {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.promo-submit:hover {
+    background-color: #229954;
+}
+
+.promo-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s;
+}
+
+.promo-close:hover {
+    color: #e74c3c;
+}
+
+/* Responsivo para celular */
+@media (max-width: 768px) {
+    .promo-modal {
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+    }
+}
+
+@media (max-width: 450px) {
+    header{
+        padding: 15px 10px;
+    }
+
+    header h1 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .cart-button {
+        padding: 10px 15px;
+        font-size: 14px;
+        top: 10px;
+        right: 10px;
+        border-radius: 30px;
+    }
+
+    .cart-count {
+        padding: 3px 8px;
+        font-size: 12px;
+        margin-left: 5px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 100%;
+    }
+
+    .product-card {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .product-name {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .product-price {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .add-to-cart  {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .cart-content {
+        max-width: 100%;
+        width: 95%;
+        padding: 20px;
+        max-height: 85vh;
+    }
+
+    .cart-header h2 {
+        font-size: 18px;
+    }
+
+    .close-cart {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+        padding: 12px;
+    }
+
+    .cart-item-info {
+        width: 100%;
+    }
+
+    .remove-item {
+        width: 100%;
+        padding: 8px;
+    }
+
+    .cart-total {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .checkout-button {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .promo-modal {
+        bottom: 0;
+        right: 0;
+        left: 0;
+        max-width: 100%;
+        border-radius: 15px 15px 0 0;
+        padding: 20px;
+    }
+
+    .promo-header h3 {
+        font-size: 18px;
+    }
+
+    .promo-header p {
+        font-size: 13px;
+    }
+
+    .promo-icon {
+        font-size: 40px;
+    }
+
+    .promo-input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .promo-submit {
+        padding: 12px;
+        font-size: 14px;
+    }
 }
