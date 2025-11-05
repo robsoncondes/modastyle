@@ -90,7 +90,7 @@ header h1 {
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
+    /*transform: translateY(5px);*/
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -408,7 +408,7 @@ header h1 {
 
 /* Quando passar o mouse, o produto "pula" um pouco */
 .product-card:hover {
-    transform: translateY(-5px);
+    /*transform: translateY(-5px);*/
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -669,13 +669,20 @@ header h1 {
     }
 
     header h1 {
-        font-size: 20px;
+        font-size: 16px;
         margin-bottom: 5px;
+        text-align: center;
+    }
+
+    header p {
+        font-size: 12px;
+        text-align: center;
     }
 
     .cart-button {
-        padding: 10px 15px;
-        font-size: 14px;
+        padding: 5px 5px;
+        font-size: 10px;
+        margin-right: -2px;
         top: 10px;
         right: 10px;
         border-radius: 30px;
